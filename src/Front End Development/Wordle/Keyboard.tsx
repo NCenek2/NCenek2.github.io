@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import WordleButton from "./WordleButton";
 
 type KeyboardProps = {
   addLetter: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
@@ -15,18 +16,18 @@ const Keyboard = ({ addLetter, removeLetter, checkWord }: KeyboardProps) => {
         keyboardEvent.preventDefault();
       } else if (/^[a-z]$/i.test(keyboardEvent.key)) {
         const letter = document.getElementById(
-          keyboardEvent.key.toUpperCase()
+          keyboardEvent.key.toUpperCase(),
         ) as HTMLInputElement;
         letter?.click();
       } else if (keyboardEvent.key == "Backspace") {
         const deleteKey = document.getElementById(
-          keyboardEvent.key
+          keyboardEvent.key,
         ) as HTMLInputElement;
         deleteKey?.click();
       } else if (keyboardEvent.key == "Enter") {
         keyboardEvent.preventDefault();
         const enterKey = document.getElementById(
-          keyboardEvent.key
+          keyboardEvent.key,
         ) as HTMLInputElement;
         enterKey?.click();
       }
@@ -38,100 +39,58 @@ const Keyboard = ({ addLetter, removeLetter, checkWord }: KeyboardProps) => {
   return (
     <>
       <div className="keyboard-container">
-        <button id="Q" onClick={addLetter} className={`wordle-key gray-key `}>
-          Q
-        </button>
-        <button id="W" onClick={addLetter} className={`wordle-key gray-key `}>
-          W
-        </button>
-        <button id="E" onClick={addLetter} className={`wordle-key gray-key `}>
-          E
-        </button>
-        <button id="R" onClick={addLetter} className={`wordle-key gray-key `}>
-          R
-        </button>
-        <button id="T" onClick={addLetter} className={`wordle-key gray-key `}>
-          T
-        </button>
-        <button id="Y" onClick={addLetter} className={`wordle-key gray-key `}>
-          Y
-        </button>
-        <button id="U" onClick={addLetter} className={`wordle-key gray-key `}>
-          U
-        </button>
-        <button id="I" onClick={addLetter} className={`wordle-key gray-key `}>
-          I
-        </button>
-        <button id="O" onClick={addLetter} className={`wordle-key gray-key `}>
-          O
-        </button>
-        <button id="P" onClick={addLetter} className={`wordle-key gray-key `}>
-          P
-        </button>
-        <span></span>
-        <button id="A" onClick={addLetter} className={`wordle-key gray-key `}>
-          A
-        </button>
-        <button id="S" onClick={addLetter} className={`wordle-key gray-key `}>
-          S
-        </button>
-        <button id="D" onClick={addLetter} className={`wordle-key gray-key `}>
-          D
-        </button>
-        <button id="F" onClick={addLetter} className={`wordle-key gray-key `}>
-          F
-        </button>
-        <button id="G" onClick={addLetter} className={`wordle-key gray-key `}>
-          G
-        </button>
-        <button id="H" onClick={addLetter} className={`wordle-key gray-key `}>
-          H
-        </button>
-        <button id="J" onClick={addLetter} className={`wordle-key gray-key `}>
-          J
-        </button>
-        <button id="K" onClick={addLetter} className={`wordle-key gray-key `}>
-          K
-        </button>
-        <button id="L" onClick={addLetter} className={`wordle-key gray-key `}>
-          L
-        </button>
-        <span></span>
-        <button
-          id="Enter"
-          onClick={() => checkWord()}
-          className={`wordle-key gray-key wordle-lg-key`}
-        >
-          Enter
-        </button>
-        <button id="Z" onClick={addLetter} className={`wordle-key gray-key `}>
-          Z
-        </button>
-        <button id="X" onClick={addLetter} className={`wordle-key gray-key `}>
-          X
-        </button>
-        <button id="C" onClick={addLetter} className={`wordle-key gray-key `}>
-          C
-        </button>
-        <button id="V" onClick={addLetter} className={`wordle-key gray-key `}>
-          V
-        </button>
-        <button id="B" onClick={addLetter} className={`wordle-key gray-key `}>
-          B
-        </button>
-        <button id="N" onClick={addLetter} className={`wordle-key gray-key `}>
-          N
-        </button>
-        <button id="M" onClick={addLetter} className={`wordle-key gray-key `}>
-          M
-        </button>
-        <button
-          id="Backspace"
-          onClick={removeLetter}
-          className={`wordle-key gray-key wordle-lg-key`}
-        >
-          Del
-        </button>
+        <div className="keyboard-row">
+          <WordleButton addLetter={addLetter} character="Q" />
+          <WordleButton addLetter={addLetter} character="W" />
+          <WordleButton addLetter={addLetter} character="E" />
+          <WordleButton addLetter={addLetter} character="R" />
+          <WordleButton addLetter={addLetter} character="T" />
+          <WordleButton addLetter={addLetter} character="Y" />
+          <WordleButton addLetter={addLetter} character="U" />
+          <WordleButton addLetter={addLetter} character="I" />
+          <WordleButton addLetter={addLetter} character="O" />
+          <WordleButton addLetter={addLetter} character="Y" />
+          <WordleButton addLetter={addLetter} character="U" />
+          <WordleButton addLetter={addLetter} character="I" />
+          <WordleButton addLetter={addLetter} character="O" />
+          <WordleButton addLetter={addLetter} character="P" />
+        </div>
+        <div className="keyboard-row">
+          <div className="wordle-key"></div>
+          <WordleButton addLetter={addLetter} character="A" />
+          <WordleButton addLetter={addLetter} character="S" />
+          <WordleButton addLetter={addLetter} character="D" />
+          <WordleButton addLetter={addLetter} character="F" />
+          <WordleButton addLetter={addLetter} character="G" />
+          <WordleButton addLetter={addLetter} character="H" />
+          <WordleButton addLetter={addLetter} character="J" />
+          <WordleButton addLetter={addLetter} character="K" />
+          <WordleButton addLetter={addLetter} character="L" />
+          <div className="wordle-key"></div>
+        </div>
+        <div className="keyboard-row">
+          <button
+            id="Enter"
+            onClick={() => checkWord()}
+            className={`wordle-key gray-key wordle-lg-key`}
+          >
+            Enter
+          </button>
+          <WordleButton addLetter={addLetter} character="Z" />
+          <WordleButton addLetter={addLetter} character="X" />
+          <WordleButton addLetter={addLetter} character="C" />
+          <WordleButton addLetter={addLetter} character="V" />
+          <WordleButton addLetter={addLetter} character="B" />
+          <WordleButton addLetter={addLetter} character="N" />
+          <WordleButton addLetter={addLetter} character="M" />
+          <button
+            id="Backspace"
+            onClick={removeLetter}
+            className={`wordle-key gray-key wordle-lg-key`}
+          >
+            Del
+          </button>
+        </div>
       </div>
     </>
   );
