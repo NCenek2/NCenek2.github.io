@@ -265,6 +265,34 @@ const sectionsData: ProjectData[] = [
       </div>
     ),
   },
+  {
+    title: "Pandemic",
+    image: "images/Pandemic.png",
+    description: `In Pandemic, several virulent diseases have broken out simultaneously all over 
+    the world! The players are disease-fighting specialists whose mission is to treat disease hotspots while
+    researching cures for each of four plagues before they get out of hand. This web version of Pandemic is
+    based of a board game and was made with React/Typescript.`,
+    links: (
+      <div className="generic-subsections">
+        <a
+          className="btn btn-outline-light"
+          href="https://ncenek2.github.io/Pandemic"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Play
+        </a>
+        <a
+          className="btn btn-outline-light"
+          href="https://github.com/NCenek2/Pandemic"
+          target="_blank"
+          rel="noreferrer"
+        >
+          View Code
+        </a>
+      </div>
+    ),
+  },
 ];
 
 export default sectionsData;
